@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import MusicButton from './playlists/musicButton'
+import MusicList from './playlists/musicList'
+
+import { Box, Grid } from '@mui/material';
+
+var boxStyle = {
+  border: '1px solid grey',
+  mx: '4px',
+}
+
+var gridStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+}
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MusicButton/>
+      <div className="App">
+        <Box sx={boxStyle}>
+          <Grid container>
+            <Grid item xs={4} sx={gridStyle}>
+              <MusicList />
+            </Grid>
+            <Grid item xs={4} sx={gridStyle}>
+              <MusicList listType={"Favorites"} />
+            </Grid>
+            <Grid item xs={4} sx={gridStyle}>
+              <MusicList listType={"Playlist"} />
+            </Grid>
+          </Grid>
+        </Box>
+      </div>
     </div>
   );
 }
