@@ -26,7 +26,8 @@ var boxStyle3 = {
 
 function MusicList(props) {
 
-    const songs = useSelector(() => store.getState())
+    const songs = useSelector(state => state.songs)
+    // console.log(songs)
 
     var listName = "My Music"
     var listItems = []
